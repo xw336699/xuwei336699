@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 500px;
+            margin: 0 auto;
+        }
+        td{
+            border: 1px solid black;
+            line-height: 35px;
+            text-align: center;
+        }
+        .num{
+            width: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input class="inputall" type="checkbox"/></td>
+        <td>名称</td>
+        <td>单价</td>
+        <td>数量</td>
+        <td>小计</td>
+        <td>操作</td>
+    </tr>
+    <tr class="trdata">
+        <td><input class="ckbox" type="checkbox"/></td>
+        <td>毛衣</td>
+        <td class="price">100</td>
+        <td><button  class="btnjian">-</button><input class="num" value="1" type="text"/><button class="btnjia">+</button></td>
+        <td class="smallprice">100￥</td>
+        <td><button class="btndelete">删除</button></td>
+    </tr>
+    <tr class="trdata">
+        <td><input class="ckbox" type="checkbox"/></td>
+        <td>毛衣</td>
+        <td class="price">100</td>
+        <td><button  class="btnjian">-</button><input class="num" value="1" type="text"/><button class="btnjia">+</button></td>
+        <td class="smallprice">100￥</td>
+        <td><button class="btndelete">删除</button></td>
+    </tr>
+    <tr class="trdata">
+        <td><input class="ckbox" type="checkbox"/></td>
+        <td>毛衣</td>
+        <td class="price">100</td>
+        <td><button  class="btnjian">-</button><input class="num" value="1" type="text"/><button class="btnjia">+</button></td>
+        <td class="smallprice">100￥</td>
+        <td><button class="btndelete">删除</button></td>
+    </tr>
+    <tr class="trdata">
+        <td><input class="ckbox" type="checkbox"/></td>
+        <td>毛衣</td>
+        <td class="price">100</td>
+        <td><button  class="btnjian">-</button><input class="num" value="1" type="text"/><button class="btnjia">+</button></td>
+        <td class="smallprice">100￥</td>
+        <td><button class="btndelete">删除</button></td>
+    </tr>
+    <tr class="trdata">
+        <td><input class="ckbox" type="checkbox"/></td>
+        <td>毛衣</td>
+        <td class="price">100</td>
+        <td><button  class="btnjian">-</button><input class="num" value="1" type="text"/><button class="btnjia">+</button></td>
+        <td class="smallprice">100￥</td>
+        <td><button class="btndelete">删除</button></td>
+    </tr>
+    <tr class="trdata">
+        <td><input class="ckbox" type="checkbox"/></td>
+        <td>毛衣</td>
+        <td class="price">100</td>
+        <td><button  class="btnjian">-</button><input class="num" value="1" type="text"/><button class="btnjia">+</button></td>
+        <td class="smallprice">100￥</td>
+        <td><button class="btndelete">删除</button></td>
+    </tr>
+    <tr>
+        <td colspan="6" class="totle">
+            0￥
+        </td>
+    </tr>
+</table>
+<script>
+    var totlePrice=0;
+    var btnjian=document.getElementsByClassName("btnjian");
+    var btnjia=document.getElementsByClassName("btnjia");
+    var number=document.getElementsByClassName("num");
+    var price=document.getElementsByClassName("price");
+    var small=document.getElementsByClassName("smallprice");
+    var btndelete=document.getElementsByClassName("btndelete");
+    var trinfo=document.getElementsByClassName("trdata");
+    var ckall=document.getElementsByClassName("inputall")[0];
+    var ckbox=document.getElementsByClassName("ckbox");
+    var totle=document.getElementsByClassName("totle")[0];
+    for(var i=0;i<number.length;i++)
+    {
+        number[i].index=i;
+       number[i].onkeydown=function (e){
+           if(isNaN(e.key)&&e.keyCode!=8)
+           {
+              return false;
+           }
+       }
+        number[i].onkeyup=function(){
+            smalladd(this.index);
+        }
+    }
+    ckall.onclick=function (){
+      for(var i=0;i<ckbox.length;i++)
+      {
+          ckbox[i].checked=!ckbox[i].checked;
+
+      }
+        totleprice();
+    }
+    for(var i=0;i<ckbox.length;i++)
+    {
+        ckbox[i].onclick=function (){
+            totleprice();
+        }
+    }
+    for(var i=0;i<btnjia.length;i++)
+    {
+        //中间桥
+        btnjian[i].index=i;
+        btnjian[i].onclick=function (){
+            //先获取值
+            var num=number[this.index].value;
+            num--;
+            if(num<1)
+            {
+                num=1;
+            }
+            number[this.index].value=num;
+            smalladd(this.index);
+            totleprice();
+        }
+        btnjia[i].index=i;
+        btnjia[i].onclick=function (){
+            //先获取值
+            var num=number[this.index].value;
+            num++;
+            number[this.index].value=num;
+            smalladd(this.index);
+            totleprice();
+        }
+        btndelete[i].index=i;
+        btndelete[i].onclick=function (){
+            trinfo[this.index].remove();
+            for(var i=0;i<btnjia.length;i++)
+            {
+                btnjian[i].index=i;
+                btnjia[i].index=i;
+                btndelete[i].index=i;
+                number[i].index=i;
+            }
+        }
+    }
+    function smalladd(index){
+        small[index].innerHTML=number[index].value*price[index].innerHTML+"￥";
+    }
+    function totleprice(){
+        totlePrice=0;
+       for(var i=0;i<ckbox.length;i++)
+       {
+           if(ckbox[i].checked)
+           {
+               totlePrice+=parseFloat(small[i].innerHTML.substr(0,small[i].innerHTML.length-1));
+           }
+       }
+        totle.innerHTML=totlePrice+"￥";
+    }
+</script>
+</body>
+</html>
