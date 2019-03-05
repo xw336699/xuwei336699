@@ -1,0 +1,115 @@
+{
+  "productlist":{
+    "PC":{
+      "title":"PC产品",
+      "msg":true,
+      "list": [
+        {
+          "name": "数据统计",
+          "url": "/Buy/One"
+        },
+        {
+          "name": "数据预测",
+          "url": "/Buy/Two"
+        },
+        {
+          "name":"流量分析",
+          "url": "/Buy/Three",
+          "hot":true
+        },
+        {
+          "name": "广告发布",
+          "url": "/Buy/Four"
+        }
+      ]
+    },
+    "phone": {
+      "title": "手机端产品",
+      "list": [
+        {
+          "name": "91助手",
+          "url": "#"
+        },
+        {
+          "name": "产品助手",
+          "url": "#"
+        },
+        {
+          "name": "智能地图",
+          "url": "#",
+          "hot":true
+        },
+        {
+          "name": "团队语音",
+          "url": "#"
+        }
+      ]
+    }
+  },
+  "news": {
+ "ones": {
+    "title":"超级爆料：",
+      "newslist":[
+        {
+          "content":"最近火热的前段框架vue登榜",
+      "url":"#"
+        },
+        {
+          "content":"5G时代到底会给我们带来哪些改变呢？",
+      "url":"#"
+        },
+        {
+          "content":"最新苹果手机有售",
+      "url":"#"
+        },
+        {
+          "content":"预测八年来人工智能将基本取代人工",
+      "url":"#"
+        },
+        {
+          "content":"看看你所不了解的js新玩法",
+      "url":"#"
+        },
+        {
+          "content":"哇，VUE，你所接触的框架又出新姿势！",
+      "url":"#"
+        }
+      ]
+    }
+  },
+  "lists": {
+    "one":{
+    "title":"开放产品",
+   "text":"开放产品是一种无私精神",
+  "btn":"立即购买",
+   "clas":"pro",
+ "hf":"#"
+    },
+  "two":{
+    "title":"品牌营销",
+   "text":"品牌营销是一种销售手段较量",
+  "btn":"立即购买",
+   "clas":"pin",
+ "hf":"#"
+    },
+  "three":{
+    "title":"使命必达",
+   "text":"使命必达使迭代永远保持最前段的速度！",
+  "btn":"立即购买",
+   "clas":"ming",
+ "hf":"#"
+    },
+ "four":{
+    "title":"勇攀高峰",
+   "text":"帮你勇闯事业的高峰，直至顶峰！",
+  "btn":"立即购买",
+   "clas":"pan",
+ "hf":"#"
+    }
+  },
+  "user": {
+    "name":["zhangsan","lisi","wangwu"],
+    "password":["123","456","789"]
+  }
+}
+
